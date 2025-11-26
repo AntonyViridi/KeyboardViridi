@@ -85,6 +85,7 @@
 &spi1 {
     compatible = "nordic,nrf-spim";
     status = "okay";
+    cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
 	pinctrl-0 = <&spi1_default>;
 	pinctrl-1 = <&spi1_sleep>;
 	pinctrl-names = "default", "sleep";
@@ -97,7 +98,6 @@
         label = "74HC595_Shifter";
         #gpio-cells = <2>;
         ngpios = <16>;
-        latch-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>; /* P0.17 - LATCH */
 		gpio-controller;
     };
 };
