@@ -9,7 +9,6 @@
 
     kscan0: kscan_gpio_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         status = "okay";
         diode-direction = "col2row";
         
@@ -42,10 +41,6 @@
             , <&shifter0 14 GPIO_ACTIVE_HIGH>
             , <&shifter0 15 GPIO_ACTIVE_HIGH>
             ;
-
-        debounce-press-ms = <5>;
-        debounce-release-ms = <5>;
-        poll-interval-ms = <10>;
     };
 
  default_transform: keymap_transform_0 {
