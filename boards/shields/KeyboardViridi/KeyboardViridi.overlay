@@ -96,5 +96,6 @@
         #gpio-cells = <2>;
         ngpios = <16>;
 		gpio-controller;
+		cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
     };
 };
