@@ -1,94 +1,98 @@
 #include <dt-bindings/gpio/nordic-nrf-gpio.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&pinctrl {
-	spi0_default: spi0_default {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 10)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
-		};
-	};
-
-	spi0_sleep: spi0_sleep {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 10)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
-			low-power-enable;
-		};
-	};
-};
-
-&spi0 {
-	status = "okay";
-	cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&spi0_default>;
-	pinctrl-1 = <&spi0_sleep>;
-	pinctrl-names = "default", "sleep";
-	 
-	shifter: 595@0 {
-		compatible = "zmk,gpio-595";
-		status = "okay";
-		gpio-controller;
-		spi-max-frequency = <200000>;
-		reg = <0>;
-		label = "4HC595";
-		#gpio-cells = <2>;
-		ngpios = <16>;
-	};
-};
-
 / {
     chosen {
-        zmk,kscan = &default_kscan;	
-        zmk,matrix_transform = &default_transform;			
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
     };
 
-default_kscan: kscan {
+    kscan0: kscan_gpio_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan";
-        diode-direction = "col2row";                                                                                                                                                                                                               
-
+        label = "KSCAN";
+        status = "okay";
+        diode-direction = "col2row";
+        
+        /* 6 строк */
         row-gpios
-            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			  , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			  , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			  , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			  , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			  , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio0 28 GPIO_ACTIVE_HIGH>  /* P0.28 - Row 0 */
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>  /* P0.29 - Row 1 */
+            , <&gpio1 10 GPIO_ACTIVE_HIGH>  /* P1.10 - Row 2 */
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  /* P1.11 - Row 3 */
+            , <&gpio1 12 GPIO_ACTIVE_HIGH>  /* P1.12 - Row 4 */
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>  /* P1.13 - Row 5 */
             ;
 
+        /* 16 столбцов через 74HC595 shift register */
         col-gpios
-	  = <&shifter 0 GPIO_ACTIVE_HIGH>,
-    	<&shifter 1 GPIO_ACTIVE_HIGH>,
-        <&shifter 2 GPIO_ACTIVE_HIGH>,
-        <&shifter 3 GPIO_ACTIVE_HIGH>,
-        <&shifter 4 GPIO_ACTIVE_HIGH>,
-        <&shifter 5 GPIO_ACTIVE_HIGH>,
-        <&shifter 6 GPIO_ACTIVE_HIGH>,
-        <&shifter 7 GPIO_ACTIVE_HIGH>,
-        <&shifter 8 GPIO_ACTIVE_HIGH>,
-        <&shifter 9 GPIO_ACTIVE_HIGH>,
-        <&shifter 10 GPIO_ACTIVE_HIGH>,
-        <&shifter 11 GPIO_ACTIVE_HIGH>,
-        <&shifter 12 GPIO_ACTIVE_HIGH>,
-        <&shifter 13 GPIO_ACTIVE_HIGH>,
-        <&shifter 14 GPIO_ACTIVE_HIGH>,
-        <&shifter 15 GPIO_ACTIVE_HIGH>;              
+            = <&shifter0 0  GPIO_ACTIVE_HIGH>
+            , <&shifter0 1  GPIO_ACTIVE_HIGH>
+            , <&shifter0 2  GPIO_ACTIVE_HIGH>
+            , <&shifter0 3  GPIO_ACTIVE_HIGH>
+            , <&shifter0 4  GPIO_ACTIVE_HIGH>
+            , <&shifter0 5  GPIO_ACTIVE_HIGH>
+            , <&shifter0 6  GPIO_ACTIVE_HIGH>
+            , <&shifter0 7  GPIO_ACTIVE_HIGH>
+            , <&shifter0 8  GPIO_ACTIVE_HIGH>
+            , <&shifter0 9  GPIO_ACTIVE_HIGH>
+            , <&shifter0 10 GPIO_ACTIVE_HIGH>
+            , <&shifter0 11 GPIO_ACTIVE_HIGH>
+            , <&shifter0 12 GPIO_ACTIVE_HIGH>
+            , <&shifter0 13 GPIO_ACTIVE_HIGH>
+            , <&shifter0 14 GPIO_ACTIVE_HIGH>
+            , <&shifter0 15 GPIO_ACTIVE_HIGH>
+            ;
+
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+        poll-interval-ms = <10>;
     };
 
-    default_transform: keymap_transform_0 {
+    default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
+        rows = <6>;
         columns = <16>;
-        rows = <8>;
         map = <
-			RC(7,13)		RC(5,12) RC(5,11) RC(6,11) RC(7,11)		RC(7,9) RC(7,7) RC(6,6) RC(5,6)		RC(5,9) RC(4,9) RC(4,4) RC(4,3)		RC(4,0) RC(3,0) RC(1,1)			
-			RC(5,13) RC(4,13) RC(4,12) RC(4,11) RC(4,10) RC(5,10) RC(5,8) RC(4,8) RC(4,7) RC(4,6) RC(4,5) RC(5,5) RC(5,7) 		RC(6,9) 	RC(5,3) RC(5,1) RC(5,2)
-			RC(6,13)   RC(3,13) RC(3,12) RC(3,11) RC(3,10) RC(6,10) RC(6,8) RC(3,8) RC(3,7) RC(3,6) RC(3,5) RC(6,5) RC(6,7)		RC(2,9)		RC(5,4) RC(4,1) RC(4,2)
-			RC(6,12)     RC(2,13) RC(2,12) RC(2,11) RC(2,10) RC(7,10) RC(7,8) RC(2,8) RC(2,7) RC(2,6) RC(2,5) RC(7,5) 			RC(1,9)
-			RC(6,14) 	   RC(1,13) RC(1,12) RC(1,11) RC(1,10) RC(0,10) RC(0,8) RC(1,8) RC(1,7) RC(1,6) RC(0,5)					RC(1,14)			RC(7,1)
-			RC(5,15)   RC(7,0) 										RC(0,9) 										  RC(0,0)   RC(1,15)	RC(0,1) RC(0,4) RC(0,3)			 
+            /* Пустая матрица 16x6 */
+            0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15
+            16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31
+            32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47
+            48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63
+            64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79
+            80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
         >;
-    };	
+    };
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        compatible = "nordic,nrf-pinctrl";
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 15)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 13)>;
+            /* MISO не нужен для 74HC595 */
+        };
+        group2 {
+            psels = <NRF_PSEL(SPIM_CSN, 0, 14)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi1 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-names = "default";
+
+    shifter0: gpio595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        spi-max-frequency = <500000>;
+        reg = <0>;
+        label = "74HC595_Shifter";
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        latch-gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>; /* P0.16 - LATCH */
+    };
 };
