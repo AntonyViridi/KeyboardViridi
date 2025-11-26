@@ -98,5 +98,6 @@
         #gpio-cells = <2>;
         ngpios = <16>;
         latch-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>; /* P0.17 - LATCH */
+		gpio-controller;
     };
 };
