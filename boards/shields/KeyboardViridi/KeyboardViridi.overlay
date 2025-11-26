@@ -20,7 +20,7 @@
 
 &spi1 {
     status = "okay";
-    cs-gpios = <&pro_micro 10 GPIO_ACTIVE_LOW>;
+    cs-gpios = <gpio0 0, 17 GPIO_ACTIVE_LOW>;
     pinctrl-0 = <&spi1_default>;
     pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
@@ -45,7 +45,7 @@
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-        diode-direction = "col2row";
+        diode-direction = "row2col";
 
         row-gpios
             = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
