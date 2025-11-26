@@ -46,7 +46,7 @@
  default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <16>;
-        rows = <8>;
+        rows = <6>;
         map = <
 			RC(7,13)		RC(5,12) RC(5,11) RC(6,11) RC(7,11)		RC(7,9) RC(7,7) RC(6,6) RC(5,6)		RC(5,9) RC(4,9) RC(4,4) RC(4,3)		RC(4,0) RC(3,0) RC(1,1)			
 			RC(5,13) RC(4,13) RC(4,12) RC(4,11) RC(4,10) RC(5,10) RC(5,8) RC(4,8) RC(4,7) RC(4,6) RC(4,5) RC(5,5) RC(5,7) 		RC(6,9) 	RC(5,3) RC(5,1) RC(5,2)
@@ -59,11 +59,14 @@
 };
 
 &pinctrl {
-	spi0_default: spi0_default {
+	spi1_default: spi1_default {
 		group1 {
 			psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
 				<NRF_PSEL(SPIM_MOSI, 0, 22)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
+        };
+       	 group2 {
+           	 psels = <NRF_PSEL(SPIM_CSN, 0, 17)>;
+             low-power-enable;
 		};
 	};
 
@@ -71,8 +74,11 @@
 		group1 {
 			psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
 				<NRF_PSEL(SPIM_MOSI, 0, 22)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
 			low-power-enable;
+        };  
+        group2 {
+             psels = <NRF_PSEL(SPIM_CSN, 0, 17)>;
+            low-power-enable;
 		};
 	};
 };
@@ -81,11 +87,9 @@
     compatible = "nordic,nrf-spim";
     status = "okay";
     cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
-	pinctrl-0 = <&spi0_default>;
+	pinctrl-0 = <&spi1_default>;
 	pinctrl-1 = <&spi1_sleep>;
 	pinctrl-names = "default", "sleep";
-    /* cs-gpios управляет latch (rclk) вместо latch-gpios прописываемом в регистре, много боли вызвал */
-    cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
 
     shifter0: gpio595@0 {
         compatible = "zmk,gpio-595";
@@ -96,6 +100,5 @@
         #gpio-cells = <2>;
         ngpios = <16>;
 		gpio-controller;
-		cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
     };
 };
