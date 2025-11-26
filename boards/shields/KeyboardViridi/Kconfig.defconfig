@@ -6,12 +6,6 @@ config ZMK_KEYBOARD_NAME
 config SPI
     default y
 
-CONFIG_GPIO_595=y
-
-CONFIG_SPI_NRFX=y
-
-CONFIG_SPI_0=y
-
 # enable pinctrl
 CONFIG_PINCTRL=y
 
