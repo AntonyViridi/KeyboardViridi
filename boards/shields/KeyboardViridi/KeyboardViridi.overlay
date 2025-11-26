@@ -6,8 +6,7 @@
         compatible = "nordic,nrf-pinctrl";
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
-                <NRF_PSEL(SPIM_MISO, 1, 11)>;
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>;
         };
     };
 
@@ -15,8 +14,7 @@
         compatible = "nordic,nrf-pinctrl";
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
-                <NRF_PSEL(SPIM_MISO, 1, 11)>;
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>;
             low-power-enable;
         };
     };
@@ -24,11 +22,10 @@
 
 &spi1 {
     status = "okay";
+    cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
     pinctrl-0 = <&spi1_default>;
     pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
-    
-    cs-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
     
     shifter0: gpio595@0 {
         compatible = "zmk,gpio-595";
@@ -47,22 +44,9 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    kscan0: kscan_gpio_matrix {
+    kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        status = "okay";
         diode-direction = "col2row";
-        
-        /* 6 строк */
-        row-gpios = <
-            &gpio0 28 GPIO_ACTIVE_HIGH  /* P0.28 - Row 0 */
-            &gpio0 29 GPIO_ACTIVE_HIGH  /* P0.29 - Row 1 */
-            &gpio1 10 GPIO_ACTIVE_HIGH  /* P1.10 - Row 2 */
-            &gpio1 11 GPIO_ACTIVE_HIGH  /* P1.11 - Row 3 */
-            &gpio1 12 GPIO_ACTIVE_HIGH  /* P1.12 - Row 4 */
-            &gpio1 13 GPIO_ACTIVE_HIGH  /* P1.13 - Row 5 */
-        >;
-
-        /* 16 столбцов через 74HC595 shift register */
         col-gpios = <
             &shifter0 0 GPIO_ACTIVE_HIGH
             &shifter0 1 GPIO_ACTIVE_HIGH
