@@ -31,7 +31,7 @@
         spi-max-frequency = <500000>;
         reg = <0>;
         #gpio-cells = <2>;
-        ngpios = <16>;
+        ngpios = <8>;
         gpio-controller;
     };
 };
@@ -64,16 +64,7 @@
             , <&shifter 5 GPIO_ACTIVE_HIGH>
             , <&shifter 6 GPIO_ACTIVE_HIGH>
             , <&shifter 7 GPIO_ACTIVE_HIGH>
-            , <&shifter 8 GPIO_ACTIVE_HIGH>
-            , <&shifter 9 GPIO_ACTIVE_HIGH>
-            , <&shifter 10 GPIO_ACTIVE_HIGH>
-            , <&shifter 11 GPIO_ACTIVE_HIGH>
-            , <&shifter 12 GPIO_ACTIVE_HIGH>
-            , <&shifter 13 GPIO_ACTIVE_HIGH>
-            , <&shifter 14 GPIO_ACTIVE_HIGH>
-            , <&shifter 15 GPIO_ACTIVE_HIGH>
-            , <&shifter 16 GPIO_ACTIVE_HIGH>
-            ;
+            , <&shifter 8 GPIO_ACTIVE_HIGH>;
     };
 
     default_transform: keymap_transform_0 {
