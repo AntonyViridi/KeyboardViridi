@@ -3,7 +3,7 @@
 
 / {
     keymap {
-        compatible = "zmk,keymap";
+        kscan = &kscan0;
 
 default_layer {
     bindings = <
