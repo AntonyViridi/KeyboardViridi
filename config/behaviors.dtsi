@@ -1,0 +1,12 @@
+/ {
+    behaviors {
+        #define MC(name, text) name: name { compatible = "zmk,behavior-macro"; label = #name; #binding-cells = <0>; macro = <ZMK_MACRO(text)>; }
+
+        MC(A0, "A0")  MC(A1, "A1")  MC(A2, "A2")  MC(A3, "A3")  MC(A4, "A4")  MC(A5, "A5")  MC(A6, "A6")  MC(A7, "A7")  MC(A8, "A8")  MC(A9, "A9")
+        MC(B0, "B0")  MC(B1, "B1")  MC(B2, "B2")  MC(B3, "B3")  MC(B4, "B4")  MC(B5, "B5")  MC(B6, "B6")  MC(B7, "B7")  MC(B8, "B8")  MC(B9, "B9")
+        MC(C0, "C0")  MC(C1, "C1")  MC(C2, "C2")  MC(C3, "C3")  MC(C4, "C4")  MC(C5, "C5")  MC(C6, "C6")  MC(C7, "C7")  MC(C8, "C8")  MC(C9, "C9")
+        MC(D0, "D0")  MC(D1, "D1")  MC(D2, "D2")  MC(D3, "D3")  MC(D4, "D4")  MC(D5, "D5")  MC(D6, "D6")  MC(D7, "D7")  MC(D8, "D8")  MC(D9, "D9")
+        MC(E0, "E0")  MC(E1, "E1")  MC(E2, "E2")  MC(E3, "E3")  MC(E4, "E4")  MC(E5, "E5")  MC(E6, "E6")  MC(E7, "E7")  MC(E8, "E8")  MC(E9, "E9")
+        MC(F0, "F0")  MC(F1, "F1")  MC(F2, "F2")  MC(F3, "F3")  MC(F4, "F4")  MC(F5, "F5")  MC(F6, "F6")  MC(F7, "F7")  MC(F8, "F8")  MC(F9, "F9")
+    };
+};
