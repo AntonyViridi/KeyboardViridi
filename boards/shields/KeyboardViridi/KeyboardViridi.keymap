@@ -7,7 +7,6 @@
 #define FIXRALT 2
 
 / {
-   / {
     keymap {
         compatible = "zmk,keymap";
 
