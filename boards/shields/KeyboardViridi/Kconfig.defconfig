@@ -9,6 +9,8 @@ config ZMK_USB
 config SPI
     default y
 
+CONFIG_GPIO_595=y
+
 # enable pinctrl
 CONFIG_PINCTRL=y
 
