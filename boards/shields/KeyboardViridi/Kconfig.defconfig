@@ -3,9 +3,6 @@ if SHIELD_KeyboardViridi
     config ZMK_KEYBOARD_NAME
         default "ViridiKeyboard"
 
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-        default 2
-
     config ZMK_USB
 	    default y
 
