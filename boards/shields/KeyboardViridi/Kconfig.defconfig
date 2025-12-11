@@ -27,7 +27,4 @@ config BT
 config BT_PERIPHERAL
     default y
 
-config BT_GATT_DIS
-    default y
-
 endif
