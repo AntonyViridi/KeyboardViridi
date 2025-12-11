@@ -1,7 +1,10 @@
 if SHIELD_SSK
 
 config ZMK_KEYBOARD_NAME
-    default "ViridiKeyboard"
+        default "ViridiKeyboard"
+
+config ZMK_USB
+	    default y
 
 config SPI
     default y
