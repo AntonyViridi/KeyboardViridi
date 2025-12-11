@@ -12,7 +12,4 @@ CONFIG_PINCTRL=y
 # enable GPIO
 CONFIG_GPIO=y
 
-# enable 595
-CONFIG_ZMK_DRIVER_GPIO_595=y
-
 endif
