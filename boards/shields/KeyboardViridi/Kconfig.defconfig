@@ -3,9 +3,6 @@ if SHIELD_SSK
 config ZMK_KEYBOARD_NAME
         default "ViridiKeyboard"
 
-config ZMK_USB
-	    default y
-
 config SPI
     default y
 
@@ -17,5 +14,13 @@ CONFIG_PINCTRL=y
 
 # enable GPIO
 CONFIG_GPIO=y
+
+# Включаем USB
+CONFIG_USB=y
+CONFIG_USB_DEVICE_STACK=y
+
+# HID-класс для клавиатуры
+CONFIG_USB_HID=y
+CONFIG_HID_KBD=y
 
 endif
