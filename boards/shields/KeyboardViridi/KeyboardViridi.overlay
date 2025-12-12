@@ -1,6 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/zmk/outputs.h>
 
 &pinctrl {
 	spi0_default: spi0_default {
@@ -34,6 +32,7 @@
 		gpio-controller;
 		spi-max-frequency = <200000>;
 		reg = <0>;
+		label = "4HC595";
 		#gpio-cells = <2>;
 		ngpios = <16>;
 	};
@@ -41,14 +40,14 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,kscan = &default_kscan;	
+        zmk,matrix_transform = &default_transform;		
     };
 
-    kscan0: kscan_0 {
+default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
-		wakeup-source;
+        label = "default_kscan";
+        diode-direction = "col2row";  
 
         col-gpios 
 			= <&shifter 0 GPIO_ACTIVE_HIGH>
