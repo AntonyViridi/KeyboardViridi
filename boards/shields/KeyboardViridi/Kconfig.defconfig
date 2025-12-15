@@ -11,5 +11,5 @@ config BT_MAX_CONN
 
     config BT_MAX_PAIRED
         default 6
-
+CONFIG_ZMK_USB_LOGGING=н
 endif
