@@ -52,7 +52,7 @@ default_kscan: kscan {
         col-gpios 
 		//	= <&shifter 13 GPIO_ACTIVE_HIGH>
 		//	, <&shifter 8 GPIO_ACTIVE_HIGH>
-			, <&shifter 3 GPIO_ACTIVE_HIGH>
+			= <&shifter 3 GPIO_ACTIVE_HIGH>
 			, <&shifter 6 GPIO_ACTIVE_HIGH>
 		//	, <&shifter 9 GPIO_ACTIVE_HIGH>
 			, <&shifter 1 GPIO_ACTIVE_HIGH>
