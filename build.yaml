@@ -22,7 +22,7 @@ include:
   - board: nice_nano_v2
     shield: KeyboardViridi
     snippet: 
-            - zmk-usb-logging
-            - studio-rpc-usb-uart
+            zmk-usb-logging
+            studio-rpc-usb-uart
   - board: nice_nano_v2
     shield: settings_reset
