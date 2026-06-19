@@ -18,7 +18,7 @@
                 &kp TAB           &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y    &kp U    &kp I    &kp O    &kp P    &kp L &kp L
                 &kp L             &kp A    &kp S    &kp D    &kp F    &kp G    &kp H    &kp J    &kp K    &kp L    &kp L &kp L &kp L  &kp L
                 &kp LSHFT         &kp Z    &studio_unlock    &kp C    &kp V    &kp B    &kp N    &kp M    &kp L     &kp L  &kp L &kp L &kp L   &kp L
-                &kp LCTRL         &kp L     &kp L     &kp studio_unlock    &kp L     &kp B        &kp B           &kp RCTRL     &kp L     &kp L     &kp L &kp L  &kp L  &kp L
+                &kp LCTRL         &kp L     &kp L     &studio_unlock    &kp L     &kp B        &kp B           &kp RCTRL     &kp L     &kp L     &kp L &kp L  &kp L  &kp L
             >;          
         };
     };
