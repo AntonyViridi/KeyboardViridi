@@ -34,7 +34,7 @@
 		reg = <0>;
 		label = "4HC595";
 		#gpio-cells = <2>;
-		ngpios = <14>;
+		ngpios = <16>;
 	};
 };
 
