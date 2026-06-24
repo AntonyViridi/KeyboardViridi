@@ -64,6 +64,8 @@ default_kscan: kscan {
   		    , <&shifter 4 GPIO_ACTIVE_HIGH>
    			, <&shifter 10 GPIO_ACTIVE_HIGH>
     		, <&shifter 15 GPIO_ACTIVE_HIGH>
+    		, <&shifter 8 GPIO_ACTIVE_HIGH>
+            , <&shifter 16 GPIO_ACTIVE_HIGH>
 			;
 		row-gpios 
             = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
