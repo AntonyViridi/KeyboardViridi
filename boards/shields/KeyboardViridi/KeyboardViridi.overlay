@@ -55,17 +55,17 @@ default_kscan: kscan {
         , <&shifter 6 GPIO_ACTIVE_HIGH>   // Col 3  (1-й регистр, пин 6 / Q6)
         , <&shifter 9 GPIO_ACTIVE_HIGH>   // Col 4  (2-й регистр, пин 1 / Q1)
         , <&shifter 1 GPIO_ACTIVE_HIGH>   // Col 5  (1-й регистр, пин 1 / Q1)
-        , <&shifter 12 GPIO_ACTIVE_HIGH>  // Col 6  (2-й регистр, пин 4 / Q4)
-        , <&shifter 14 GPIO_ACTIVE_HIGH>  // Col 7  (2-й регистр, пин 6 / Q6)
-        , <&shifter 3 GPIO_ACTIVE_HIGH>   // Col 8  (1-й регистр, пин 3 / Q3) ← БЫЛО 8, ИСПРАВЛЕНО!
-        , <&shifter 2 GPIO_ACTIVE_HIGH>   // Col 9  (1-й регистр, пин 2 / Q2) ← БЫЛО 3, ИСПРАВЛЕНО!
-        , <&shifter 11 GPIO_ACTIVE_HIGH>  // Col 10 (2-й регистр, пин 3 / Q3) ← БЫЛО 2, ИСПРАВЛЕНО!
-        , <&shifter 7 GPIO_ACTIVE_HIGH>   // Col 11 (1-й регистр, пин 7 / Q7) ← БЫЛО 11, ИСПРАВЛЕНО!
-        , <&shifter 4 GPIO_ACTIVE_HIGH>   // Col 12 (1-й регистр, пин 4 / Q4) ← БЫЛО 7, ИСПРАВЛЕНО!
+        , <&shifter 8 GPIO_ACTIVE_HIGH>  // Col 6  (2-й регистр, пин 4 / Q4)
+        , <&shifter 3 GPIO_ACTIVE_HIGH>  // Col 7  (2-й регистр, пин 6 / Q6)
+        , <&shifter 2 GPIO_ACTIVE_HIGH>   // Col 8  (1-й регистр, пин 3 / Q3) ← БЫЛО 8, ИСПРАВЛЕНО!
+        , <&shifter 11 GPIO_ACTIVE_HIGH>   // Col 9  (1-й регистр, пин 2 / Q2) ← БЫЛО 3, ИСПРАВЛЕНО!
+        , <&shifter 15 GPIO_ACTIVE_HIGH>  // Col 10 (2-й регистр, пин 3 / Q3) ← БЫЛО 2, ИСПРАВЛЕНО!
+        , <&shifter 4 GPIO_ACTIVE_HIGH>   // Col 11 (1-й регистр, пин 7 / Q7) ← БЫЛО 11, ИСПРАВЛЕНО!
+        , <&shifter 12 GPIO_ACTIVE_HIGH>   // Col 12 (1-й регистр, пин 4 / Q4) ← БЫЛО 7, ИСПРАВЛЕНО!
         , <&shifter 10 GPIO_ACTIVE_HIGH>  // Col 13 (2-й регистр, пин 2 / Q2) ← БЫЛО 4, ИСПРАВЛЕНО!
-        , <&shifter 15 GPIO_ACTIVE_HIGH>  // Col 14 (2-й регистр, пин 7 / Q7) ← БЫЛО 10, ИСПРАВЛЕНО!
-        , <&shifter 0 GPIO_ACTIVE_HIGH>   // Col 15 (1-й регистр, пин 15 / Q0) - Свободный пин
-        , <&shifter 8 GPIO_ACTIVE_HIGH>   // Col 16 (2-й регистр, пин 15 / Q0) ← БЫЛО 16 (ОШИБКА), ИСПРАВЛЕНО НА 8
+        , <&shifter 0 GPIO_ACTIVE_HIGH>  // Col 14 (2-й регистр, пин 7 / Q7) ← БЫЛО 10, ИСПРАВЛЕНО!
+        , <&shifter  GPIO_ACTIVE_HIGH>   // Col 15 (1-й регистр, пин 15 / Q0) - Свободный пин
+        , <&shifter  GPIO_ACTIVE_HIGH>   // Col 16 (2-й регистр, пин 15 / Q0) ← БЫЛО 16 (ОШИБКА), ИСПРАВЛЕНО НА 8
         ;
 		row-gpios 
         = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
