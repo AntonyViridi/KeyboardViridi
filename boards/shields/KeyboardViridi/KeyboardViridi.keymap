@@ -23,7 +23,7 @@
            // Row 4
                          &kp CAPS       &kp A         &kp S         &kp D        &kp F        &kp G        &kp H           &kp J         &kp K            &kp L         &kp SEMI         &kp SQT         &kp BSLH         &none
            // Row 5
-                         &kp LSHFT      &none         &kp Z         &kp X        &kp C        &kp V        &kp B           &kp N         &kp M            &kp COMMA     &kp DOT          &kp SLASH       &none            &kp RSHFT
+                         &kp LSHFT      &none         &kp Z         &kp X        &kp C        &kp V        &kp B           &kp N         &kp M            &kp COMMA     &kp DOT          &kp FSLH       &none            &kp RSHFT
            // Row 6
                          &kp LCTRL      &kp LGUI      &kp LALT      &none        &none        &none        &kp SPACE       &none         &none            &none         &kp RALT         &none           &kp K_APP        &kp RCTRL
             >;          
