@@ -16,7 +16,7 @@
 //                            Col0          Col1          Col2          Col3          Col4          Col5          Col6          Col7          Col8          Col9          Col10         Col11         Col12         Col13        
 //                            Pin13         Pin5          Pin6          Pin9          Pin1          Pin12         Pin14         Pin8          Pin3          Pin2          Pin11         Pin7          Pin4          Pin10         
 // Row 1      P0.24
-                              &kp ESC       &kp F1        &kp F2        &kp F3        &kp F4        &none         &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12       
+                              &studio_unlock       &kp F1        &kp F2        &kp F3        &kp F4        &none         &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12       
 // Row 2      P1.00
                               &kp GRAVE     &kp N1        &kp N3        &kp N4        &kp N5        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp MINUS     &kp EQUAL     &kp N2        &kp BSPC     
 // Row 3      P1.06
