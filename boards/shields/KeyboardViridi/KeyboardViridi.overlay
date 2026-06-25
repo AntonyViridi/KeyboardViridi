@@ -51,7 +51,6 @@
         label = "Default Layout";
         transform = <&default_transform>;
     };
- };
 default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "default_kscan";
