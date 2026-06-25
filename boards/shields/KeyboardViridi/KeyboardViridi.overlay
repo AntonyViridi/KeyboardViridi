@@ -40,9 +40,10 @@
 };
 
 / {
-    key: key {
-        compatible = "zmk,key";
-        #key-cells = <2>;   // ← добавлено
+ key: key {
+    compatible = "zmk,key";
+    #key-cells = <2>;
+    status = "okay";
     };
 
     chosen {
