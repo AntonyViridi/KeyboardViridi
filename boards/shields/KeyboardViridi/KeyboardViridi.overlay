@@ -2,91 +2,97 @@
 #include <dt-bindings/gpio/gpio.h>
 
 &pinctrl {
-	spi0_default: spi0_default {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 10)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
-		};
-	};
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                <NRF_PSEL(SPIM_MISO, 1, 11)>;
+        };
+    };
 
-	spi0_sleep: spi0_sleep {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 10)>,
-				<NRF_PSEL(SPIM_MISO, 1, 11)>;
-			low-power-enable;
-		};
-	};
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                <NRF_PSEL(SPIM_MISO, 1, 11)>;
+            low-power-enable;
+        };
+    };
 };
 
 &spi0 {
-	status = "okay";
-	cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&spi0_default>;
-	pinctrl-1 = <&spi0_sleep>;
-	pinctrl-names = "default", "sleep";
-	 
-	shifter: shift_reg@0 {
-		compatible = "zmk,gpio-595";
-		status = "okay";
-		gpio-controller;
-		spi-max-frequency = <200000>;
-		reg = <0>;
-		// УДАЛЕНО: label = "4HC595"; (устарело)
-		#gpio-cells = <2>;
-		ngpios = <16>;
-	};
+    status = "okay";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+     
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        reg = <0>;
+        label = "4HC595";
+        #gpio-cells = <2>;
+        ngpios = <16>;
+    };
 };
 
 / {
+    // ===== ЯВНОЕ ОПРЕДЕЛЕНИЕ УЗЛА key ДЛЯ STUDIO =====
+    key: key {
+        compatible = "zmk,key";
+    };
+
     chosen {
-        zmk,kscan = &default_kscan;	
-        zmk,matrix_transform = &default_transform;
-        zmk,physical_layout = &default_layout; // Подключаем physical layout
+        zmk,kscan = &default_kscan;    
+        zmk,matrix_transform = &default_transform;    
+        zmk,physical_layout = &default_layout;
     };
 
     default_layout: default_layout {
         compatible = "zmk,physical-layout";
-        // ИСПРАВЛЕНО: ZMK Studio теперь требует display-name вместо label
-        display-name = "Default Layout"; 
+        label = "Default Layout";
         transform = <&default_transform>;
-		keys = <
+        keys = <
             &key 0 0 &key 0 1 &key 0 2 &key 0 3 &key 0 4 &key 0 5 &key 0 6 &key 0 7 &key 0 8 &key 0 9 &key 0 10 &key 0 11 &key 0 12 &key 0 13
             &key 1 0 &key 1 1 &key 1 2 &key 1 3 &key 1 4 &key 1 5 &key 1 6 &key 1 7 &key 1 8 &key 1 9 &key 1 10 &key 1 11 &key 1 12 &key 1 13
             &key 2 0 &key 2 1 &key 2 2 &key 2 3 &key 2 4 &key 2 5 &key 2 6 &key 2 7 &key 2 8 &key 2 9 &key 2 10 &key 2 11 &key 2 12 &key 2 13
             &key 3 0 &key 3 1 &key 3 2 &key 3 3 &key 3 4 &key 3 5 &key 3 6 &key 3 7 &key 3 8 &key 3 9 &key 3 10 &key 3 11 &key 3 12 &key 3 13
             &key 4 0 &key 4 1 &key 4 2 &key 4 3 &key 4 4 &key 4 5 &key 4 6 &key 4 7 &key 4 8 &key 4 9 &key 4 10 &key 4 11 &key 4 12 &key 4 13
             &key 5 0 &key 5 1 &key 5 2 &key 5 3 &key 5 4 &key 5 5 &key 5 6 &key 5 7 &key 5 8 &key 5 9 &key 5 10 &key 5 11 &key 5 12 &key 5 13
-        	   >;
+        >;
     };
 
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "default_kscan";
-        diode-direction = "col2row";  
+        diode-direction = "col2row";
 
-        col-gpios = <&shifter 13 GPIO_ACTIVE_HIGH>,
-                    <&shifter 5 GPIO_ACTIVE_HIGH>,
-                    <&shifter 6 GPIO_ACTIVE_HIGH>,
-                    <&shifter 10 GPIO_ACTIVE_HIGH>,
-                    <&shifter 1 GPIO_ACTIVE_HIGH>,
-                    <&shifter 12 GPIO_ACTIVE_HIGH>,
-                    <&shifter 9 GPIO_ACTIVE_HIGH>,
-                    <&shifter 3 GPIO_ACTIVE_HIGH>,
-                    <&shifter 2 GPIO_ACTIVE_HIGH>,
-                    <&shifter 11 GPIO_ACTIVE_HIGH>,
-                    <&shifter 7 GPIO_ACTIVE_HIGH>,
-                    <&shifter 4 GPIO_ACTIVE_HIGH>,
-                    <&shifter 8 GPIO_ACTIVE_HIGH>,
-                    <&shifter 0 GPIO_ACTIVE_HIGH>;
+        col-gpios = 
+            <&shifter 13 GPIO_ACTIVE_HIGH>,
+            <&shifter 5 GPIO_ACTIVE_HIGH>,
+            <&shifter 6 GPIO_ACTIVE_HIGH>,
+            <&shifter 10 GPIO_ACTIVE_HIGH>,
+            <&shifter 1 GPIO_ACTIVE_HIGH>,
+            <&shifter 12 GPIO_ACTIVE_HIGH>,
+            <&shifter 9 GPIO_ACTIVE_HIGH>,
+            <&shifter 3 GPIO_ACTIVE_HIGH>,
+            <&shifter 2 GPIO_ACTIVE_HIGH>,
+            <&shifter 11 GPIO_ACTIVE_HIGH>,
+            <&shifter 7 GPIO_ACTIVE_HIGH>,
+            <&shifter 4 GPIO_ACTIVE_HIGH>,
+            <&shifter 8 GPIO_ACTIVE_HIGH>,
+            <&shifter 0 GPIO_ACTIVE_HIGH>;
 
-        row-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; 
+        row-gpios = 
+            <&gpio0 24 GPIO_ACTIVE_HIGH>,
+            <&gpio1 0 GPIO_ACTIVE_HIGH>,
+            <&gpio1 4 GPIO_ACTIVE_HIGH>,
+            <&gpio0 11 GPIO_ACTIVE_HIGH>,
+            <&gpio1 6 GPIO_ACTIVE_HIGH>,
+            <&gpio0 9 GPIO_ACTIVE_HIGH>;
     };
 
     default_transform: keymap_transform_0 {
