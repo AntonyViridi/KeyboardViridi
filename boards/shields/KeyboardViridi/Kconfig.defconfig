@@ -9,6 +9,8 @@ if SHIELD_KeyboardViridi
 config BT_MAX_CONN
         default 6
 
+CONFIG_ZMK_STUDIO=y
+
     config BT_MAX_PAIRED
         default 6
 endif
