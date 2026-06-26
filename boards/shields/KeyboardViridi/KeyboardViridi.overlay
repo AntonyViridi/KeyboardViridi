@@ -42,8 +42,7 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;    
-        zmk,matrix_transform = &default_transform;    
-        zmk,physical_layout = &default_layout;
+        zmk,physical-layout = &default_layout;
     };
 
     default_layout: default_layout {
@@ -62,7 +61,6 @@
 
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan";
         diode-direction = "col2row";
 
         col-gpios 
