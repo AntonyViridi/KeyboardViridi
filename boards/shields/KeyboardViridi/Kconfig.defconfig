@@ -11,6 +11,8 @@ config BT_MAX_CONN
 
 CONFIG_ZMK_STUDIO=y
 
+CONFIG_ZMK_ENCODER=y
+
     config BT_MAX_PAIRED
         default 6
 endif
