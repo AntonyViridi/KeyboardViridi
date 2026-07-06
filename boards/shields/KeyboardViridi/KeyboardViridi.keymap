@@ -27,9 +27,9 @@
                               &kp LSHFT             &none         &kp Z         &kp X         &kp C         &kp V         &kp B         &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &none         &kp RSHFT     &none     &none
 // Row 6      P0.09
                               &kp LCTRL             &kp LGUI      &kp LALT      &none         &none         &none         &kp SPACE     &none         &none         &none         &kp RALT      &kp LGUI      &kp K_APP     &kp RCTRL     &none     &none
-
-            >;          
-                              sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            >;
+            
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     }; 
-};  
+};
