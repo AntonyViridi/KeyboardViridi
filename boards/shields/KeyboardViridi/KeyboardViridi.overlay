@@ -45,25 +45,21 @@
         zmk,physical-layout = &default_layout;
     };
 
+    /* --- ЭНКОДЕР --- */
     encoder1: encoder1 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <15>;
-        status = "disabled";
-    };
-
-    &encoder1 {
+        steps = <15>; /* 15 электрических импульсов на оборот */
         status = "okay";
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder1>;
-        triggers-per-rotation = <30>;
+        triggers-per-rotation = <30>; /* 30 срабатываний на оборот (по числу щелчков) */
     };
-
-
+    /* --------------- */
 
     default_layout: default_layout {
         compatible = "zmk,physical-layout";
