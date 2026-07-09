@@ -167,7 +167,7 @@
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
-
+ 
         col-gpios 
         = <&shifter 13 GPIO_ACTIVE_HIGH>
         , <&shifter 5 GPIO_ACTIVE_HIGH>
