@@ -13,7 +13,7 @@ if SHIELD_KeyboardViridi
         default 6
 
     config ZMK_STUDIO
-        default y
+        default n
 
     config EC11
         default y
