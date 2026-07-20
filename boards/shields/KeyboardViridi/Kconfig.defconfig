@@ -15,7 +15,4 @@ if SHIELD_KeyboardViridi
     config ZMK_STUDIO
         default n
 
-    config EC11
-        default y
-
 endif
