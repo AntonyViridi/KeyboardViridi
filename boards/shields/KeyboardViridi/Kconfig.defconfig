@@ -6,13 +6,7 @@ if SHIELD_KeyboardViridi
     config ZMK_USB
         default y
 
-    config BT_MAX_CONN
-        default 6
-
-    config BT_MAX_PAIRED
-        default 6
-
     config ZMK_STUDIO
-        default n
+        default y
 
 endif
