@@ -28,7 +28,7 @@
 // Row 6      P0.09
                               &kp CAPS              &kp A         &kp S         &none         &kp F         &kp G         &none         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT       &kp H        &none         &kp BSLH      &kp D
             >; 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     }; 
 };
