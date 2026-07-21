@@ -13,20 +13,20 @@
 
         default_layer {
             bindings = <
-//                            Col0                  Col1          Col2          Col3          Col4          Col5          Col6          Col7          Col8          Col9          Col10         Col11         Col12         Col13        
+//                            Col0                  Col1          Col2          Col3          Col4          Col5          Col6          Col7          Col8          Col9          Col10         Col11         Col12         Col13        Col14         cOL15
 //                            Pin13                 Pin5          Pin6          Pin9          Pin1          Pin12         Pin14         Pin8          Pin3          Pin2          Pin11         Pin7          Pin4          Pin10         
-// Row 1      P0.24
-                              &kp ESC               &kp F1        &kp F2        &kp F3        &kp F4        &none         &kp F5        &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12       &none     &none
+// Row 1      P0.24           
+                              &kp GRAVE             &kp N1        &kp N2        &none         &kp N4        &kp N5        &none         &kp N7        &kp N8        &kp N9        &kp N0        &kp MINUS     &kp N6        &kp BSPC     &kp EQUAL     &kp N3            
 // Row 2      P1.00
-                              &kp GRAVE             &kp N1        &kp N3        &kp N4        &kp N5        &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp MINUS     &kp EQUAL     &kp N2        &kp BSPC      &none     &none
+                              &none                 &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none         &none
 // Row 3      P1.06
-                              &kp TAB               &kp Q         &kp W         &kp E         &kp R         &kp T         &kp Y         &kp U         &kp I         &kp O         &kp P         &kp LBKT      &kp RBKT      &kp ENTER     &none     &none
+                              &none                 &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none         &none
 // Row 4      P0.11
-                              &kp CAPS              &kp A         &kp S         &kp D         &kp F         &kp G         &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT       &kp BSLH      &none         &none     &none
+                              &none                 &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none         &none  
 // Row 5      P1.04
-                              &kp LSHFT             &none         &kp Z         &kp X         &kp C         &kp V         &kp B         &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &none         &kp RSHFT     &none     &none
+                              &none                 &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none         &none
 // Row 6      P0.09
-                              &kp LCTRL             &kp LGUI      &kp LALT      &none         &none         &none         &kp SPACE     &none         &none         &none         &kp RALT      &kp LGUI      &kp K_APP     &kp RCTRL     &none     &none
+                              &none                 &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none        &none         &none
             >; 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
