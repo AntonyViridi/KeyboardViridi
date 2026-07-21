@@ -22,7 +22,7 @@
 // Row 3      P1.06
                               &kp TAB               &kp Q         &kp W         &none         &kp R         &kp T         &none         &kp U         &kp I         &kp O         &kp P         &kp LBKT      &kp Y         &kp ENTER    &kp RBKT      &kp E
 // Row 4      P0.11
-                              &kp LSHFT             &none         &kp Z         &none         &kp С         &kp V         &none         &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp B         &kp RSHFT    &none         &kp X  
+                              &kp LSHFT             &none         &kp Z         &none         &kp C         &kp V         &none         &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp B         &kp RSHFT    &none         &kp X  
 // Row 5      P1.04
                               &kp LCTRL             &kp LGUI      &kp LALT      &none         &none         &none         &none         &none         &none         &none         &kp RALT      &kp K_APP     &kp SPACE     &kp RCTRL    &kp LGUI      &none
 // Row 6      P0.09
