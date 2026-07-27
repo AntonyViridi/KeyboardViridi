@@ -1,0 +1,10 @@
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: kscan {
+        compatible = "zmk,kscan-mock";
+        label = "KSCAN";
+    };
+};
