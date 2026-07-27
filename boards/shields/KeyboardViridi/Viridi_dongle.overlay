@@ -6,5 +6,7 @@
     mock_kscan: kscan {
         compatible = "zmk,kscan-mock";
         label = "KSCAN";
+        rows = <6>;
+        columns = <16>;
     };
 };
