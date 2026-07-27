@@ -6,6 +6,9 @@ if SHIELD_KeyboardViridi
     config ZMK_USB
         default y
 
+    config ZMK_BLE
+        default y
+
     config ZMK_STUDIO
         default y
 
